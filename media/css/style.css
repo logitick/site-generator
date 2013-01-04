@@ -1,0 +1,141 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+body {
+	font-family: "Segoe UI";
+	line-height:1.5em;
+	font-size:.9em;
+}
+a {
+	cursor:pointer;
+	color:#333;
+}
+ol {
+	padding-left:40px;
+	display:block;
+}
+ol li {
+	list-style:decimal;
+}
+#wrap {
+	min-height:100%;
+	display:run-in;
+
+	margin:0 auto;
+}
+h1 {
+	font-size:3em;
+	margin-bottom:20px;
+	line-height:1em;
+}
+h2 {
+	font-size:2.5em;
+	margin-bottom:20px;
+	line-height:1em;
+}
+p {
+	margin:10px 0;
+}
+p+h2 {
+	margin-top:50px;
+}
+#wrap>div {
+
+}
+#header {
+	background:#fff;
+	height:100px;
+}
+#title {
+	max-height:100%;
+	float:left;
+	width:41%;
+}
+#main {
+	color:#fff;
+}
+.clear {
+	clear:both;
+}
+#title>div {
+	font-size:2em;
+	margin:0;
+	padding:10px;
+}
+#title>div:nth-child(1) {
+	margin-top:15px;
+}
+#title>div:nth-child(2) {
+	font-size:.8em;
+	font-style:italic;
+}
+#title img {
+	width:100%;
+}
+#nav {
+	width:59%;
+	height:100px;
+	float:right;
+}
+.nav {
+	height:100%;
+	width:100%;
+	text-align:right;
+}
+.nav>li {
+	display:inline-block;
+	width:25.22%;
+	height:100%;
+	margin-right:-5px;
+}
+.nav>li>a {
+	border-radius: 50%;
+	width:45px;
+	text-align:center;
+	height:45px;
+	display:table;
+	margin:20px auto;
+}
+.nav>li>a>img {
+	margin-top:12px;
+	height:20px;
+	
+}
+a.icon-home {
+	background-color:#d80036;
+}
+a.icon-personal {
+	background-color:#db7400;
+}
+a.icon-education {
+	background-color:#FAAE18;
+}
+a.icon-photos {
+	background-color:#88B100;
+}
+.bg-home {
+	background-color:#FF003C;	
+}
+.bg-personal {
+	background-color:#FF8A00;
+}
+.bg-education {
+	background-color:#FABE28;
+}
+.bg-photos {
+	background-color:#88C100;
+}
+#main>div {
+	margin-left:41%;
+	padding:20px;
+}
+#photosDiv {
+	width:100%;
+}
+#photosDiv li {
+	width:30% !important;
+	float:left;
+	margin-right:5px;
+}
+#photosDiv li img {
+	width:100%;
+}
