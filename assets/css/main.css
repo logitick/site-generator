@@ -3106,6 +3106,10 @@
 			letter-spacing: -0.025em;
 		}
 
+		#header .logo img{
+			border-radius: 100%;
+		}
+
 		#header.alt {
 			padding: 7em 5em 4em 5em ;
 		}
