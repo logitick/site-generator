@@ -1,0 +1,12 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Paul Daniel Iway"
+theme = "hugo-paper"
+#menu = ["main", "footer"]
+
+[[menu.main]]
+  identifier = "articles"
+  name = "Articles"
+  title = "Articles"
+  url = "/articles/"
+  weight = 10
