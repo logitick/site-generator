@@ -1,7 +1,6 @@
 languageCode = "en-us"
 title = "Paul Daniel Iway"
 theme = "hugo-paper"
-publishDir = "docs"
 
 [[menu.main]]
   identifier = "articles"
