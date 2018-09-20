@@ -1,6 +1,7 @@
 ---
 title: "How to dockerize a Laravel application"
 date: 2018-09-15T21:31:04+08:00
+tags: ["tutorials"]
 draft: true
 ---
 First off, why would we need to do that? If it ain't broke, right?  
@@ -24,7 +25,8 @@ setup. It is recommended that there only be one processing running
 in a container so we'll leave out MySql.
 
 I'll assume that you already have Docker installed in your system. 
-If not have a look at their website [https://docs.docker.com/install/](https://docs.docker.com/install/).
+If not have a look at their website 
+[https://docs.docker.com/install/](https://docs.docker.com/install/).
 
 ## Dockerfile
 We'll start by creating a file named `Dockerfile` in the root directory 
