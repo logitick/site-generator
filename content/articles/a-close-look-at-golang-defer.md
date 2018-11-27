@@ -1,7 +1,6 @@
 ---
 title: "A Close Look at Golang's defer"
 date: 2018-09-22T09:44:13+08:00
-draft: true
 tags: ["go", "golang"]
 ---
 I've never come across anything like Go's `defer` in any of the languages I've 
@@ -13,7 +12,8 @@ If you've been coding in Go you've probably used the
 `defer` statement plenty of times.
 <!--more-->
 
-It makes reading a file super short:
+With `defer`, I can put the `Close` statement immediately after opening.
+I love it because it helps me never to forget closing that file reader.
 ```
 f, err := os.Open("myfile")
 defer f.Close()
@@ -61,33 +61,19 @@ Good
 It is also good to keep in mind that when deferring a function, it's arguments are evaluated immediately.
 ```
 func doStuff() {
-    for i := 0; i < 5; i++ {
-        fmt.Println(i)
-    }
+    i := 0
+    defer fmt.Println(i)
+    i++
 }
-```
-
-
-Calling `doStuff()` would run something similar to:
-```
-// for loop starts
-deferStack.Push(func(){fmt.Println(0)})  // arguments are evaluated
-deferStack.Push(func(){fmt.Println(1)})  
-deferStack.Push(func(){fmt.Println(2)})
-deferStack.Push(func(){fmt.Println(3)})
-deferStack.Push(func(){fmt.Println(4)})
-// for loop exits
 ```
 
 
 **Output:**
 ```
-4
-3
-2
-1
 0
 ```
 
+How awesome is `defer`, right? There's so much more you can do with it. You can even recover from a panic. 
 
-> <sup>*</sup> 
+
+For me, It is just one of the things that makes Go very enjoyable to write in.
