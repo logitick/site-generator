@@ -2,6 +2,7 @@ baseURL = "//pdiway.com/"
 languageCode = "en-us"
 title = "Paul Daniel Iway"
 theme = "hugo-paper"
+pygmentsCodeFences=true
 
 [[menu.main]]
   identifier = "articles"
