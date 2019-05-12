@@ -1,4 +1,4 @@
-baseURL = "//pdiway.com/"
+baseURL = "https://pdiway.com/"
 languageCode = "en-us"
 title = "Paul Daniel Iway"
 theme = "hugo-paper"
