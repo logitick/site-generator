@@ -18,6 +18,7 @@
   {{- if eq .Kind "page" }}
   <meta name="description" content="{{ .Summary }}">
   <meta name="author" content="{{ .Params.author | default .Site.Params.author }}">
+  {{ with .Params.tags }}<meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">{{ end }}
   {{ else }}
   <meta name="description" content="{{ .Site.Params.description }}">
   <meta name="author" content="{{ .Site.Params.author }}">

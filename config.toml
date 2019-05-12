@@ -3,6 +3,12 @@ languageCode = "en-us"
 title = "Paul Daniel Iway"
 theme = "hugo-paper"
 pygmentsCodeFences=true
+description = "Paul Daniel Iway"
+
+[params]
+  author =  "Paul Daniel Iway"
+  description = "Software Development, Devops, Life"
+
 
 [[menu.main]]
   identifier = "articles"
