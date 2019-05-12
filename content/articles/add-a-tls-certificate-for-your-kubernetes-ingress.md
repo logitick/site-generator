@@ -2,7 +2,6 @@
 title: "Add a TLS Certificate for Your Kubernetes Ingress"
 date: 2019-04-25T21:42:23+08:00
 tags: ["kubernetes", "k8s", "ssl", "tls", "tutorials"]
-draft: true
 ---
 
 I keep forgetting how to do this. Now, I’m writing down because the internet
