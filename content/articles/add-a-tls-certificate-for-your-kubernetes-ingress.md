@@ -6,9 +6,7 @@ draft: true
 ---
 
 I keep forgetting how to do this. Now, I’m writing down because the internet
-never forgets.  Unless, of course, you have it in a production database with no
-backups. Not having backups guarantees that your data will disappear into the
-void.
+never forgets.
 
 If you've been given a bunch of `crt` files here a the steps to add them to
 kubernetes.
@@ -16,18 +14,21 @@ kubernetes.
 <!--more-->
 
 
-## Bundle up the crt files
+## Bundle up the `.crt` files
 
-I don't like having too many certificates around. I like to keep them bundled
-up in one file. If you've got the already bundled up Certificate Authority (CA)
-certificates, It's your lucky day. You'll only need to concatenate you're domain's
-certificate with your CA certificate bundle.
+If we're going to add the certificate to kubernetes we need to keep them
+bundled up in one file. If you've got the already bundled up Certificate
+Authority (CA) certificates, It's your lucky day. You'll only need to
+concatenate you're domain's certificate with your CA certificate bundle.
 
 ```
 $ cat example.com.crt >> fullchain.pem
 $ cat My_CA_Bundle.ca-bundle >> fullchain.pem
 ```
+Lucky bastard. You should [skip to adding the certificate to kubernetes]({{< relref "#create-a-kubernetes-tls-secret" >}})
 
+
+### No CA Bundle
 If you don't have the bundled CA certificates, you're going to have to
 concatenate them yourself but you'll have to follow a specific order in order
 to not break the chain.
@@ -62,15 +63,10 @@ Certificate:
     Data:
         Issuer: Issuer A
         Subject: CN = example.com
-
 Certificate:
     Data:
         Issuer: Issuer B
         Subject: Issuer A
-Certificate:
-    Data:
-        Issuer: ROOT Issuer
-        Subject: Issuer B
 Certificate:
     Data:
         Issuer: ROOT Issuer
@@ -87,12 +83,23 @@ used by your kubernetes ingress.
 
 
 ## Create a Kubernetes TLS secret
+We'll need to create a specific type of secret called `tls`. 
+```bash
+kubectl create secret tls <secret-name> --key <path-to-key> --cert <path-to-contatenated-certificates>
+
 ```
-kubectl create secret tls www.example.com --key www_example_com.key --cert www.example.com.pem
+
+The `<path-to-key>` is the private key file which should have came with your
+certificates.
+
+In this case, I would run:
+```bash
+kubectl create secret tls www.example.com --key ./www_example_com.key --cert ./fullchain.pem
 ```
 
 
 ## Use the TLS secret in the ingress
+Now all that's left to do is to call it from the ingress by its name.
 ```
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -118,6 +125,8 @@ spec:
     - example.com
     secretName: www.example.com
 ```
+Depending on what you use for your ingress, It could take a bit of time before
+it takes effect.
 
 
 1. https://stackoverflow.com/questions/24153344/peformance-does-ssl-trust-chain-order-matter
