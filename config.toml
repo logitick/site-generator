@@ -1,14 +1,9 @@
 baseURL = "https://pdiway.com/"
 languageCode = "en-us"
 title = "Paul Daniel Iway"
-theme = "hugo-paper"
+theme = "PaperMod"
 pygmentsCodeFences=true
 description = "Paul Daniel Iway"
-
-[params]
-  author =  "Paul Daniel Iway"
-  description = "Software Development, Devops, Life"
-
 
 [[menu.main]]
   identifier = "articles"
@@ -16,3 +11,28 @@ description = "Paul Daniel Iway"
   title = "Articles"
   url = "/articles/"
   weight = 10
+[[menu.main]]
+  identifier = "search"
+  name = "Search"
+  title = "Search"
+  url = "/search/"
+  weight = 0
+
+
+
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
+
+[params]
+ShowShareButtons = true
+env = "production"
+ShowReadingTime = true
+
+[params.fuseOpts]
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1_000
+threshold = 0.4
+minMatchCharLength = 0
+keys = [ "title", "permalink", "summary", "content" ]
